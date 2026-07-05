@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS memories (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    character_id UUID NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    memory TEXT NOT NULL,
+    importance INTEGER DEFAULT 1,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
