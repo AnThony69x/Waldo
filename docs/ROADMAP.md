@@ -1,13 +1,13 @@
 # Roadmap de PersonaAI
 
 ### Fase 1: MVP del Chat
-- [x] Configuración de carpetas y monorepo.
-- [x] Instalación de Next.js y FastAPI.
-- [x] Esquemas SQL iniciales.
-- [ ] Modelos SQLAlchemy y configuración en Supabase.
-- [ ] Primera interfaz de chat funcional en frontend.
-- [ ] Integración con Gemini y endpoint base.
-- [ ] Waldo responde texto básico.
+- `[x]` Configuración de carpetas y monorepo.
+- `[x]` Instalación de Next.js y FastAPI.
+- `[x]` Esquemas SQL iniciales.
+- `[x]` Modelos SQLAlchemy y configuración en Supabase.
+- `[x]` Primera interfaz de chat funcional en frontend.
+- `[x]` Integración con Gemini y endpoint base.
+- `[x]` Waldo responde texto básico.
 
 ### Fase 2: Voz y Audio
 - [ ] Integración del SDK de ElevenLabs.

@@ -14,11 +14,26 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+import os
+import sys
+
+# Ensure app is in path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+
+from app.core.database import Base
+from app.models import *  # Import all models to register them
+from app.core.config import settings
+
+target_metadata = Base.metadata
+
+db_url = settings.DATABASE_URL
+if db_url and db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    
+if db_url:
+    # Escape '%' for configparser interpolation
+    alembic_db_url = db_url.replace('%', '%%')
+    config.set_main_option("sqlalchemy.url", alembic_db_url)
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
